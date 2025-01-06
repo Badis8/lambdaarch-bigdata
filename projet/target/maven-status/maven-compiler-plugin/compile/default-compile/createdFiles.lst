@@ -1,0 +1,6 @@
+tn\enit\bigdata\entity\CarLocation.class
+tn\enit\bigdata\util\PropertyFileReader.class
+tn\enit\bigdata\entity\AverageData.class
+tn\enit\bigdata\processor\StreamProcessor.class
+tn\enit\bigdata\processor\CarLocationDeserializer.class
+tn\enit\bigdata\processor\ProcessorUtils.class

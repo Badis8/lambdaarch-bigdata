@@ -1,0 +1,7 @@
+# Ignore all node_modules directories, no matter where they are located
+**/node_modules/
+
+# Ignore all target directories, no matter where they are located (for Maven builds)
+**/target/
+/data
+*.jar

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Car Location Updates</title>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1.5.1/dist/sockjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/dist/stomp.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/dist/stomp.min.js"></script>
+
+</head>
+<body>
+    <h1>Real-Time Car Location Updates</h1>
+    <div id="updates"></div>
+
+    <script>
+        const socket = new SockJS('http://localhost:8045/ws'); // Connect to the WebSocket endpoint
+        const stompClient = Stomp.over(socket);
+
+        stompClient.connect({}, function () {
+            // Subscribe to the topic where updates will be sent
+            stompClient.subscribe('/topic/updates', function (update) {
+                // Parse and display the update in the console and on the page
+                const updateData = JSON.parse(update.body);
+                console.log(updateData);
+                
+                const updatesDiv = document.getElementById('updates');
+                const updateElement = document.createElement('div');
+                updateElement.textContent = `Car ID: ${updateData.carId}, Latitude: ${updateData.latitude}, Longitude: ${updateData.longitude}`;
+                updatesDiv.appendChild(updateElement);
+            });
+        });
+    </script>
+</body>
+</html>

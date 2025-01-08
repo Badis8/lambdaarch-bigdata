@@ -66,7 +66,7 @@ public class StreamProcessor {
   
         String hdfsSavePath = prop.getProperty("tn.enit.bigdata.hdfs.save.path");
         String batchOutputPath = prop.getProperty("tn.enit.bigdata.hdfs.save.output");
-        ProcessorUtils.saveTemperatureToCassandra(locationStream);
+        ProcessorUtils.saveLocationToCassandra(locationStream);
         ProcessorUtils.saveDataToHDFS(locationStream,hdfsSavePath,spark );
  
         streamingContext.start();

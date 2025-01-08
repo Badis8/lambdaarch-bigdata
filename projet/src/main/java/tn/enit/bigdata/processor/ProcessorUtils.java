@@ -49,7 +49,7 @@ public class ProcessorUtils {
     }
 
  
-    public static void saveTemperatureToCassandra(final JavaDStream<CarLocation> dataStream) {
+    public static void saveLocationToCassandra(final JavaDStream<CarLocation> dataStream) {
         System.out.println("Saving to Cassandra...");
 
     
